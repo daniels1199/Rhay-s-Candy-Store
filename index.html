@@ -14,7 +14,7 @@
         background-color: #FDF1EB;
       }
       .brand-font {
-        font-family: 'Dancing+Script', cursive;
+        font-family: 'Dancing Script', cursive;
       }
       ::-webkit-scrollbar {
         width: 8px;
@@ -27,18 +27,20 @@
         border-radius: 10px;
       }
     </style>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
     "react": "https://esm.sh/react@^19.2.4",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
