@@ -98,10 +98,20 @@ const App: React.FC = () => {
           <h4 className="text-xl font-bold text-[#5C3D2E] mb-2 uppercase tracking-tighter">Nos Acompanhe</h4>
           <p className="text-gray-500 text-sm mb-6">Fique por dentro das novidades e promoções!</p>
           <div className="flex justify-center gap-4">
-             <a href="#" className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-[#E89E7D] hover:scale-110 transition-transform">
+             <a 
+               href="https://www.instagram.com/rhays_candystore_?igsh=M2Vpc3p6NjR6ZDZ6" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-[#E89E7D] hover:scale-110 transition-transform"
+             >
                <i className="fab fa-instagram text-xl"></i>
              </a>
-             <a href={`https://wa.me/${CONTACT_PHONE}`} className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-[#25D366] hover:scale-110 transition-transform">
+             <a 
+               href={`https://wa.me/${CONTACT_PHONE}`} 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-[#25D366] hover:scale-110 transition-transform"
+             >
                <i className="fab fa-whatsapp text-xl"></i>
              </a>
           </div>
