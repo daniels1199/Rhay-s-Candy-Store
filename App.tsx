@@ -38,7 +38,7 @@ const App: React.FC = () => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const categories = ['Pastéis', 'Batatas', 'Dindins Gourmet'] as const;
+  const categories = ['Pastéis', 'Batatas', 'Dindins Gourmet', 'Sobremesas'] as const;
   const subtotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
   const cartTotal = cart.length > 0 ? subtotal + DELIVERY_FEE : 0;
   const cartCount = cart.reduce((sum, i) => sum + i.quantity, 0);

@@ -37,7 +37,7 @@ export const MENU_ITEMS: MenuItem[] = [
     description: 'Acompanha molhos, calabresa fritinha e parmesão' 
   },
 
-  // Dindins Gourmet (Baseado na imagem fornecida)
+  // Dindins Gourmet
   { id: 'd1', name: 'Dindin Chocolate', price: 5.00, category: 'Dindins Gourmet' },
   { id: 'd2', name: 'Dindin M. Morango', price: 5.00, category: 'Dindins Gourmet' },
   { id: 'd3', name: 'Dindin M. Maracujá', price: 5.00, category: 'Dindins Gourmet' },
@@ -50,6 +50,21 @@ export const MENU_ITEMS: MenuItem[] = [
   { id: 'd10', name: 'Dindin Coco Branco', price: 5.00, category: 'Dindins Gourmet' },
   { id: 'd11', name: 'Dindin Cappuccino', price: 5.00, category: 'Dindins Gourmet' },
   { id: 'd12', name: 'Dindin Prestígio', price: 6.00, category: 'Dindins Gourmet' },
+
+  // Sobremesas (Baseado na imagem do cardápio)
+  { id: 's1', name: 'Cones recheados', price: 9.00, category: 'Sobremesas' },
+  { id: 's2', name: 'Bolo no pote', price: 11.90, category: 'Sobremesas' },
+  { id: 's3', name: 'Banoffee', price: 10.00, category: 'Sobremesas' },
+  { id: 's4', name: 'Delícia de abacaxi', price: 10.00, category: 'Sobremesas' },
+  { id: 's5', name: 'Trufa', price: 5.00, category: 'Sobremesas' },
+  { id: 's6', name: 'Brigadeiros', price: 3.00, category: 'Sobremesas' },
+  { id: 's7', name: 'Brownie box', price: 10.00, category: 'Sobremesas' },
+  { id: 's8', name: 'Cookies', price: 10.00, category: 'Sobremesas' },
+  { id: 's9', name: 'Fatia Brownie', price: 12.00, category: 'Sobremesas' },
+  { id: 's10', name: 'Brownie na marmita', price: 10.00, category: 'Sobremesas' },
+  { id: 's11', name: 'Bolo médio', price: 45.90, category: 'Sobremesas' },
+  { id: 's12', name: 'Bolo pequeno', price: 16.00, category: 'Sobremesas' },
+  { id: 's13', name: 'Mousse', price: 7.00, category: 'Sobremesas' },
 ];
 
 export const CONTACT_PHONE = '5585996269684';
