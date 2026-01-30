@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { CartItem } from '../types';
-import { CONTACT_PHONE } from '../constants';
+import { CONTACT_PHONE, DELIVERY_FEE } from '../constants';
 
 interface CartProps {
   items: CartItem[];
@@ -12,7 +12,8 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, onClose }) => {
-  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const total = items.length > 0 ? subtotal + DELIVERY_FEE : 0;
 
   const handleSendWhatsApp = () => {
     if (items.length === 0) return;
@@ -26,12 +27,13 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
     });
     
     message += `--------------------------\n`;
+    message += `Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+    message += `Taxa de Entrega: R$ ${DELIVERY_FEE.toFixed(2).replace('.', ',')}\n`;
     message += `*TOTAL: R$ ${total.toFixed(2).replace('.', ',')}*`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${CONTACT_PHONE}?text=${encodedMessage}`;
     
-    // Proteção contra tabnabbing: abrindo em nova aba com noopener
     const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     if (win) win.focus();
   };
@@ -112,11 +114,21 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
         </div>
 
         <div className="p-6 border-t bg-gray-50 space-y-4">
-          <div className="flex justify-between items-center">
-            <span className="text-gray-500 font-medium uppercase tracking-widest text-xs">Total do Pedido</span>
-            <span className="text-2xl font-bold text-[#5C3D2E]">
-              R$ {total.toFixed(2).replace('.', ',')}
-            </span>
+          <div className="space-y-2">
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-gray-500">Subtotal</span>
+              <span className="text-gray-700 font-medium">R$ {subtotal.toFixed(2).replace('.', ',')}</span>
+            </div>
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-gray-500">Taxa de Entrega</span>
+              <span className="text-gray-700 font-medium">R$ {DELIVERY_FEE.toFixed(2).replace('.', ',')}</span>
+            </div>
+            <div className="flex justify-between items-center pt-2 border-t">
+              <span className="text-gray-500 font-medium uppercase tracking-widest text-xs">Total do Pedido</span>
+              <span className="text-2xl font-bold text-[#5C3D2E]">
+                R$ {total.toFixed(2).replace('.', ',')}
+              </span>
+            </div>
           </div>
           
           <button

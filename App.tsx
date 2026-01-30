@@ -1,7 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
-// Importação do GoogleGenAI removida pois não será mais usada
-import { MENU_ITEMS, CONTACT_PHONE } from './constants';
+import { MENU_ITEMS, CONTACT_PHONE, DELIVERY_FEE } from './constants';
 import { MenuItem, CartItem } from './types';
 import ItemCard from './components/ItemCard';
 import Cart from './components/Cart';
@@ -39,12 +38,13 @@ const App: React.FC = () => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const categories = ['Pastéis', 'Batatas'] as const;
-  const cartTotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+  const categories = ['Pastéis', 'Batatas', 'Dindins Gourmet'] as const;
+  const subtotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+  const cartTotal = cart.length > 0 ? subtotal + DELIVERY_FEE : 0;
   const cartCount = cart.reduce((sum, i) => sum + i.quantity, 0);
 
   return (
-    <div className="min-h-screen pb-20 bg-[#FDF1EB]">
+    <div className="min-h-screen pb-32 bg-[#FDF1EB]">
       <header className="bg-white px-4 py-8 text-center shadow-sm relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-orange-100/50 rounded-full blur-3xl -z-10 opacity-30"></div>
         
@@ -122,7 +122,7 @@ const App: React.FC = () => {
               </span>
             )}
           </div>
-          <div className="flex flex-col items-start leading-none">
+          <div className="flex flex-col items-start leading-none text-left">
             <span className="font-bold tracking-wide uppercase text-xs opacity-70">
               {cartCount > 0 ? 'Concluir Pedido' : 'Meu Carrinho'}
             </span>

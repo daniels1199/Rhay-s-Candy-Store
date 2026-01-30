@@ -4,7 +4,7 @@ export interface MenuItem {
   name: string;
   price: number;
   description?: string;
-  category: 'Pastéis' | 'Batatas';
+  category: 'Pastéis' | 'Batatas' | 'Dindins Gourmet';
   image?: string;
 }
 
