@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { CartItem } from '../types';
-import { CONTACT_PHONE, DELIVERY_FEE } from '../constants';
+import { CONTACT_PHONE, DELIVERY_FEE, PIX_CODE } from '../constants';
 
 interface CartProps {
   items: CartItem[];
@@ -12,8 +12,15 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, onClose }) => {
+  const [pixCopied, setPixCopied] = useState(false);
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const total = items.length > 0 ? subtotal + DELIVERY_FEE : 0;
+
+  const handleCopyPix = () => {
+    navigator.clipboard.writeText(PIX_CODE);
+    setPixCopied(true);
+    setTimeout(() => setPixCopied(false), 2000);
+  };
 
   const handleSendWhatsApp = () => {
     if (items.length === 0) return;
@@ -39,6 +46,9 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
   };
 
   if (!isOpen) return null;
+
+  // URL para gerar o QR Code usando o código PIX
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(PIX_CODE)}&color=5C3D2E&bgcolor=FDF1EB`;
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end" role="dialog" aria-modal="true">
@@ -75,40 +85,81 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
               </button>
             </div>
           ) : (
-            <div className="space-y-4">
-              {items.map((item) => (
-                <div key={item.id} className="flex gap-4 p-4 rounded-2xl bg-[#FDF1EB]/50 border border-orange-100 items-center">
-                  <div className="flex-grow">
-                    <h4 className="font-semibold text-[#5C3D2E]">{item.name}</h4>
-                    <p className="text-[#E89E7D] font-bold">R$ {item.price.toFixed(2).replace('.', ',')}</p>
-                    <div className="flex items-center gap-4 mt-2">
-                      <div className="flex items-center gap-2 bg-white rounded-lg border border-orange-200 px-1 shadow-sm">
+            <div className="space-y-6">
+              <div className="space-y-4">
+                {items.map((item) => (
+                  <div key={item.id} className="flex gap-4 p-4 rounded-2xl bg-[#FDF1EB]/50 border border-orange-100 items-center">
+                    <div className="flex-grow">
+                      <h4 className="font-semibold text-[#5C3D2E]">{item.name}</h4>
+                      <p className="text-[#E89E7D] font-bold">R$ {item.price.toFixed(2).replace('.', ',')}</p>
+                      <div className="flex items-center gap-4 mt-2">
+                        <div className="flex items-center gap-2 bg-white rounded-lg border border-orange-200 px-1 shadow-sm">
+                          <button 
+                            onClick={() => onUpdateQuantity(item.id, -1)}
+                            className="w-8 h-8 flex items-center justify-center text-[#E89E7D] hover:bg-orange-50 rounded"
+                            aria-label="Diminuir quantidade"
+                          >
+                            <i className="fas fa-minus text-[10px]"></i>
+                          </button>
+                          <span className="w-6 text-center font-bold text-sm">{item.quantity}</span>
+                          <button 
+                            onClick={() => onUpdateQuantity(item.id, 1)}
+                            className="w-8 h-8 flex items-center justify-center text-[#E89E7D] hover:bg-orange-50 rounded"
+                            aria-label="Aumentar quantidade"
+                          >
+                            <i className="fas fa-plus text-[10px]"></i>
+                          </button>
+                        </div>
                         <button 
-                          onClick={() => onUpdateQuantity(item.id, -1)}
-                          className="w-8 h-8 flex items-center justify-center text-[#E89E7D] hover:bg-orange-50 rounded"
-                          aria-label="Diminuir quantidade"
+                          onClick={() => onRemove(item.id)}
+                          className="text-red-400 text-xs hover:text-red-600 transition-colors uppercase font-bold tracking-tighter"
                         >
-                          <i className="fas fa-minus text-[10px]"></i>
-                        </button>
-                        <span className="w-6 text-center font-bold text-sm">{item.quantity}</span>
-                        <button 
-                          onClick={() => onUpdateQuantity(item.id, 1)}
-                          className="w-8 h-8 flex items-center justify-center text-[#E89E7D] hover:bg-orange-50 rounded"
-                          aria-label="Aumentar quantidade"
-                        >
-                          <i className="fas fa-plus text-[10px]"></i>
+                          Remover
                         </button>
                       </div>
-                      <button 
-                        onClick={() => onRemove(item.id)}
-                        className="text-red-400 text-xs hover:text-red-600 transition-colors uppercase font-bold tracking-tighter"
-                      >
-                        Remover
-                      </button>
                     </div>
                   </div>
+                ))}
+              </div>
+
+              {/* Seção de Pagamento PIX */}
+              <div className="bg-[#FDF1EB] rounded-3xl p-6 border-2 border-dashed border-[#E89E7D]/30 text-center">
+                <h3 className="text-[#5C3D2E] font-bold text-sm uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
+                  <i className="fas fa-qrcode text-[#E89E7D]"></i>
+                  Pagamento via PIX
+                </h3>
+                
+                <div className="bg-white p-4 rounded-2xl shadow-sm inline-block mb-4 border border-orange-100">
+                  <img src={qrCodeUrl} alt="QR Code PIX" className="w-40 h-40 mx-auto" />
                 </div>
-              ))}
+                
+                <p className="text-[#5C3D2E] text-xs font-medium mb-4 px-4 leading-relaxed">
+                  Escaneie o código acima ou use o botão abaixo para copiar o código de pagamento.
+                </p>
+
+                <button 
+                  onClick={handleCopyPix}
+                  className={`w-full py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 border-2 ${
+                    pixCopied 
+                    ? 'bg-green-500 border-green-500 text-white shadow-green-100' 
+                    : 'bg-white border-[#E89E7D] text-[#E89E7D] hover:bg-[#E89E7D] hover:text-white'
+                  }`}
+                >
+                  <i className={`fas ${pixCopied ? 'fa-check' : 'fa-copy'}`}></i>
+                  {pixCopied ? 'Código Copiado!' : 'PIX Copia e Cola'}
+                </button>
+
+                <div className="mt-8 flex flex-col items-center justify-center gap-4">
+                  <span className="text-[11px] font-bold text-[#5C3D2E]/80 uppercase tracking-widest">
+                    Pagamento recebido por
+                  </span>
+                  <img 
+                    src="https://logodownload.org/wp-content/uploads/2019/06/mercado-pago-logo-0.png" 
+                    alt="Mercado Pago" 
+                    className="h-14 w-auto object-contain drop-shadow-sm"
+                  />
+                </div>
+              </div>
             </div>
           )}
         </div>

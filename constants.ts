@@ -10,6 +10,8 @@ export const COLORS = {
 
 export const DELIVERY_FEE = 6.00;
 
+export const PIX_CODE = '00020126360014br.gov.bcb.pix0114+55859841537805204000053039865802BR5911SORA50679376009Sao Paulo610901227-20062230519daqr49730549472216463043E09';
+
 export const MENU_ITEMS: MenuItem[] = [
   // Pastéis
   { id: 'p1', name: 'Misto (Queijo + Presunto + Calabresa)', price: 6.00, category: 'Pastéis' },
