@@ -1,6 +1,5 @@
-
 import React, { useState, useCallback } from 'react';
-import { MENU_ITEMS, CONTACT_PHONE, DELIVERY_FEE } from './constants';
+import { STORE_CONFIG } from './config';
 import { MenuItem, CartItem } from './types';
 import ItemCard from './components/ItemCard';
 import Cart from './components/Cart';
@@ -40,7 +39,7 @@ const App: React.FC = () => {
 
   const categories = ['Pastéis', 'Batatas', 'Dindins Gourmet', 'Sobremesas'] as const;
   const subtotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
-  const cartTotal = cart.length > 0 ? subtotal + DELIVERY_FEE : 0;
+  const cartTotal = cart.length > 0 ? subtotal + STORE_CONFIG.DELIVERY_FEE : 0;
   const cartCount = cart.reduce((sum, i) => sum + i.quantity, 0);
 
   return (
@@ -87,7 +86,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {MENU_ITEMS.filter((item) => item.category === category).map((item) => (
+              {STORE_CONFIG.MENU_ITEMS.filter((item) => item.category === category).map((item) => (
                 <ItemCard key={item.id} item={item} onAdd={addToCart} />
               ))}
             </div>
@@ -107,7 +106,7 @@ const App: React.FC = () => {
                <i className="fab fa-instagram text-xl"></i>
              </a>
              <a 
-               href={`https://wa.me/${CONTACT_PHONE}`} 
+               href={`https://wa.me/${STORE_CONFIG.CONTACT_PHONE}`} 
                target="_blank" 
                rel="noopener noreferrer"
                className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-[#25D366] hover:scale-110 transition-transform"

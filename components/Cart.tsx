@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { CartItem } from '../types';
-import { CONTACT_PHONE, DELIVERY_FEE, PIX_CODE } from '../constants';
+import { STORE_CONFIG } from '../config';
 
 interface CartProps {
   items: CartItem[];
@@ -14,10 +13,10 @@ interface CartProps {
 const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, onClose }) => {
   const [pixCopied, setPixCopied] = useState(false);
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const total = items.length > 0 ? subtotal + DELIVERY_FEE : 0;
+  const total = items.length > 0 ? subtotal + STORE_CONFIG.DELIVERY_FEE : 0;
 
   const handleCopyPix = () => {
-    navigator.clipboard.writeText(PIX_CODE);
+    navigator.clipboard.writeText(STORE_CONFIG.PIX_CODE);
     setPixCopied(true);
     setTimeout(() => setPixCopied(false), 2000);
   };
@@ -35,11 +34,11 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
     
     message += `--------------------------\n`;
     message += `Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
-    message += `Taxa de Entrega: R$ ${DELIVERY_FEE.toFixed(2).replace('.', ',')}\n`;
+    message += `Taxa de Entrega: R$ ${STORE_CONFIG.DELIVERY_FEE.toFixed(2).replace('.', ',')}\n`;
     message += `*TOTAL: R$ ${total.toFixed(2).replace('.', ',')}*`;
     
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${CONTACT_PHONE}?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/${STORE_CONFIG.CONTACT_PHONE}?text=${encodedMessage}`;
     
     const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     if (win) win.focus();
@@ -48,7 +47,7 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
   if (!isOpen) return null;
 
   // URL para gerar o QR Code usando o código PIX
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(PIX_CODE)}&color=5C3D2E&bgcolor=FDF1EB`;
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(STORE_CONFIG.PIX_CODE)}&color=5C3D2E&bgcolor=FDF1EB`;
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end" role="dialog" aria-modal="true">
@@ -172,7 +171,7 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
             </div>
             <div className="flex justify-between items-center text-sm">
               <span className="text-gray-500">Taxa de Entrega</span>
-              <span className="text-gray-700 font-medium">R$ {DELIVERY_FEE.toFixed(2).replace('.', ',')}</span>
+              <span className="text-gray-700 font-medium">R$ {STORE_CONFIG.DELIVERY_FEE.toFixed(2).replace('.', ',')}</span>
             </div>
             <div className="flex justify-between items-center pt-2 border-t">
               <span className="text-gray-500 font-medium uppercase tracking-widest text-xs">Total do Pedido</span>
