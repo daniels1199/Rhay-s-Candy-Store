@@ -49,12 +49,22 @@ const App: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-orange-100/50 rounded-full blur-3xl -z-10 opacity-30"></div>
         
         <div className="flex flex-col items-center mb-4 scale-90 sm:scale-100">
-          <div className="w-24 h-24 mb-2">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M50 5C35 25 35 75 50 95C65 75 65 25 50 5Z" fill="#E89E7D" stroke="#5C3D2E" strokeWidth="2"/>
-              <path d="M50 5C45 25 45 75 50 95" stroke="#5C3D2E" strokeWidth="2"/>
-              <path d="M50 5C55 25 55 75 50 95" stroke="#5C3D2E" strokeWidth="2"/>
-              <path d="M50 95V100" stroke="#5C3D2E" strokeWidth="2"/>
+          <div className="w-32 h-32 mb-2 transition-transform hover:scale-105 duration-500">
+            {/* Logo SVG Redimensionado Horizontalmente */}
+            <svg viewBox="0 0 140 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-sm">
+              {/* Caule */}
+              <path d="M74 2C74 2 74 12 70 20" stroke="#5C3D2E" strokeWidth="8" strokeLinecap="round"/>
+              
+              {/* Corpo Principal - Gomos Laterais Externos (Laranja e Ouro) */}
+              <path d="M70 20C20 45 20 135 70 155" fill="#E67E22" stroke="#5C3D2E" strokeWidth="5" strokeLinejoin="round"/>
+              <path d="M70 20C120 45 120 135 70 155" fill="#F39C12" stroke="#5C3D2E" strokeWidth="5" strokeLinejoin="round"/>
+              
+              {/* Gomos Internos (Dando volume horizontal) */}
+              <path d="M70 20C45 45 45 135 70 155" fill="#D35400" stroke="#5C3D2E" strokeWidth="5" strokeLinejoin="round"/>
+              <path d="M70 20C95 45 95 135 70 155" fill="#FFB142" stroke="#5C3D2E" strokeWidth="5" strokeLinejoin="round"/>
+              
+              {/* Linha Central de Acabamento */}
+              <path d="M70 20V155" stroke="#5C3D2E" strokeWidth="5" strokeLinecap="round"/>
             </svg>
           </div>
           <h1 className="brand-font text-5xl text-[#5C3D2E]">Rhay's</h1>
