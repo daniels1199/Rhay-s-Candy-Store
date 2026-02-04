@@ -45,6 +45,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen pb-32 bg-[#FDF1EB]">
       <header className="bg-white px-4 py-8 text-center shadow-sm relative overflow-hidden">
+        {/* Fundo decorativo */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-orange-100/50 rounded-full blur-3xl -z-10 opacity-30"></div>
         
         <div className="flex flex-col items-center mb-4 scale-90 sm:scale-100">
@@ -60,7 +61,7 @@ const App: React.FC = () => {
           <p className="uppercase tracking-widest font-bold text-[#5C3D2E] text-xl -mt-1">candy store</p>
         </div>
         
-        <div className="w-24 h-1 bg-[#E89E7D] mx-auto rounded-full mt-4"></div>
+        <div className="w-24 h-1 bg-[#E89E7D] mx-auto rounded-full mt-6"></div>
       </header>
 
       <main className="max-w-4xl mx-auto px-4 mt-8">

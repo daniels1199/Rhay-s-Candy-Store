@@ -154,7 +154,7 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
                     <i className="fas fa-info-circle"></i> Importante
                   </span>
                   <p className="text-[11px] text-[#5C3D2E] font-medium leading-relaxed">
-                    Esta transação é realizada diretamente entre cliente e vendedor via PIX. 
+                    A transação é realizada diretamente entre o cliente e o vendedor via PIX. 
                     Confirme os dados antes de finalizar o pagamento.
                   </p>
                 </div>
