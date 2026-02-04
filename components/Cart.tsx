@@ -148,15 +148,15 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
                   {pixCopied ? 'Código Copiado!' : 'PIX Copia e Cola'}
                 </button>
 
-                <div className="mt-8 flex flex-col items-center justify-center gap-4">
-                  <span className="text-[11px] font-bold text-[#5C3D2E]/80 uppercase tracking-widest">
-                    Pagamento recebido por
+                {/* Aviso de Transação Direta */}
+                <div className="mt-8 p-4 bg-white/80 rounded-2xl border border-orange-200 flex flex-col items-center gap-2">
+                  <span className="text-[10px] font-bold text-[#E89E7D] uppercase tracking-widest flex items-center gap-1.5">
+                    <i className="fas fa-info-circle"></i> Importante
                   </span>
-                  <img 
-                    src="https://logodownload.org/wp-content/uploads/2019/06/mercado-pago-logo-0.png" 
-                    alt="Mercado Pago" 
-                    className="h-14 w-auto object-contain drop-shadow-sm"
-                  />
+                  <p className="text-[11px] text-[#5C3D2E] font-medium leading-relaxed">
+                    Esta transação é realizada diretamente entre cliente e vendedor via PIX. 
+                    Confirme os dados antes de finalizar o pagamento.
+                  </p>
                 </div>
               </div>
             </div>
