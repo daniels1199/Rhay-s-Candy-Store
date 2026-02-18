@@ -2,11 +2,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/((?!maintenance.html$).*)",
-      "destination": "/maintenance.html",
-      "permanent": false
+      "source": "/((?!maintenance|404|assets|favicon|.*\\..*).*)",
+      "destination": "/maintenance.html"
     }
   ]
 }
