@@ -1,18 +1,64 @@
 
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { STORE_CONFIG } from './config';
 import { MenuItem, CartItem } from './types';
 import ItemCard from './components/ItemCard';
 import Cart from './components/Cart';
 
+// Componente de Manutenção Interno para evitar quebra de Preview
+const MaintenanceView: React.FC = () => (
+  <div className="min-h-screen flex items-center justify-center p-6 relative bg-[#FDF1EB] overflow-hidden">
+    <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#E89E7D 0.5px, transparent 0.5px)', backgroundSize: '20px 20px' }}></div>
+    
+    <div className="max-w-lg w-full text-center bg-white/60 backdrop-blur-lg p-8 sm:p-12 rounded-[50px] shadow-2xl border border-white/80 animate-in fade-in zoom-in duration-500 relative z-10">
+      <div className="w-32 h-32 mx-auto mb-8 animate-bounce transition-all duration-[3000ms]">
+        <svg viewBox="0 0 140 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-md">
+          <path d="M74 2C74 2 74 12 70 20" stroke="#5C3D2E" strokeWidth="8" strokeLinecap="round"/>
+          <path d="M70 20C20 45 20 135 70 155" fill="#E67E22" stroke="#5C3D2E" strokeWidth="5" strokeLinejoin="round"/>
+          <path d="M70 20C120 45 120 135 70 155" fill="#F39C12" stroke="#5C3D2E" strokeWidth="5" strokeLinejoin="round"/>
+          <path d="M70 20C45 45 45 135 70 155" fill="#D35400" stroke="#5C3D2E" strokeWidth="5" strokeLinejoin="round"/>
+          <path d="M70 20C95 45 95 135 70 155" fill="#FFB142" stroke="#5C3D2E" strokeWidth="5" strokeLinejoin="round"/>
+          <path d="M70 20V155" stroke="#5C3D2E" strokeWidth="5" strokeLinecap="round"/>
+        </svg>
+      </div>
+
+      <h1 className="brand-font text-5xl mb-4 text-[#E89E7D]">Novas doçuras a caminho!</h1>
+      <p className="text-gray-600 mb-10 text-lg leading-relaxed">
+        Estamos atualizando nosso cardápio para trazer o melhor para você. <br />
+        <span className="font-semibold">Voltamos em instantes.</span>
+      </p>
+
+      <div className="space-y-4">
+        <p className="text-xs uppercase tracking-[0.2em] font-bold text-[#5C3D2E]/50 mb-4">Ainda quer fazer um pedido?</p>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href={`https://wa.me/${STORE_CONFIG.CONTACT_PHONE}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-[#25D366] text-white py-4 rounded-2xl font-bold shadow-lg hover:shadow-green-100 transition-all transform hover:-translate-y-1">
+            <i className="fab fa-whatsapp text-xl"></i>
+            WhatsApp
+          </a>
+          <a href="https://www.instagram.com/rhays_candystore_/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-white text-[#5C3D2E] py-4 rounded-2xl font-bold shadow-md border border-orange-100 hover:bg-orange-50 transition-all transform hover:-translate-y-1">
+            <i className="fab fa-instagram text-xl text-[#E89E7D]"></i>
+            Instagram
+          </a>
+        </div>
+      </div>
+
+      <div className="mt-12">
+        <div className="w-12 h-1 bg-[#E89E7D]/30 mx-auto rounded-full"></div>
+        <p className="text-[10px] text-gray-400 mt-4 uppercase tracking-widest">&copy; 2026 Rhay's Candy Store</p>
+      </div>
+    </div>
+  </div>
+);
+
 const App: React.FC = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Redirecionamento para 404 se em manutenção
+  // Redirecionamento lógico: Se estiver em manutenção, exibe a View de Manutenção
+  // Isso não quebra o Preview pois não altera o window.location
   if (STORE_CONFIG.IS_MAINTENANCE) {
-    window.location.replace('/404.html');
-    return null;
+    return <MaintenanceView />;
   }
 
   const addToCart = useCallback((item: MenuItem) => {

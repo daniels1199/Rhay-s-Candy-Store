@@ -2,7 +2,7 @@
 import { MenuItem } from './types';
 
 export const STORE_CONFIG = {
-  IS_MAINTENANCE: true, // Altere para false para reativar o cardápio
+  IS_MAINTENANCE: true, // Agora pode ser ativado sem quebrar o preview
   COLORS: {
     primary: '#5C3D2E',
     secondary: '#E89E7D',
