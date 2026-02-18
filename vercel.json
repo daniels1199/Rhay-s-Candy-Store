@@ -4,7 +4,7 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/((?!404|assets|favicon|.*\\..*).*)",
+      "source": "/((?!maintenance|404|assets|favicon|.*\\..*).*)",
       "destination": "/404.html"
     }
   ]
