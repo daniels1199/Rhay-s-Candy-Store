@@ -9,7 +9,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
-        maintenance: 'maintenance.html',
         404: '404.html',
       },
     },
