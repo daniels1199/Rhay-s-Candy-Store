@@ -1,8 +1,10 @@
 
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!404|maintenance|assets|favicon|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
