@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/((?!maintenance|404|assets|favicon|.*\\..*).*)",
-      "destination": "/maintenance.html"
+      "destination": "/404.html"
     }
   ]
 }
