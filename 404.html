@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página não encontrada - Rhay's Candy Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FDF1EB;
+        color: #5C3D2E;
+      }
+      .brand-font {
+        font-family: 'Dancing Script', cursive;
+      }
+      .blob {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: #E89E7D;
+        filter: blur(80px);
+        opacity: 0.1;
+        border-radius: 50%;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex items-center justify-center p-6 overflow-hidden relative">
+    <!-- Elementos Decorativos -->
+    <div class="blob -top-20 -left-20"></div>
+    <div class="blob -bottom-20 -right-20"></div>
+
+    <div class="max-w-md w-full text-center bg-white/40 backdrop-blur-md p-10 rounded-[40px] shadow-xl border border-white/50 animate-in fade-in zoom-in duration-500">
+      
+      <!-- Logo SVG -->
+      <div class="w-32 h-32 mx-auto mb-6">
+        <svg viewBox="0 0 140 160" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-md">
+          <path d="M74 2C74 2 74 12 70 20" stroke="#5C3D2E" stroke-width="8" stroke-linecap="round"/>
+          <path d="M70 20C20 45 20 135 70 155" fill="#E67E22" stroke="#5C3D2E" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M70 20C120 45 120 135 70 155" fill="#F39C12" stroke="#5C3D2E" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M70 20C45 45 45 135 70 155" fill="#D35400" stroke="#5C3D2E" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M70 20C95 45 95 135 70 155" fill="#FFB142" stroke="#5C3D2E" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M70 20V155" stroke="#5C3D2E" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <h1 class="text-8xl font-black text-[#E89E7D] opacity-20 leading-none">404</h1>
+      
+      <div class="relative -mt-8">
+        <h2 class="brand-font text-5xl mb-2">Oops!</h2>
+        <p class="text-lg font-medium mb-8 leading-relaxed">Parece que este doce sumiu da prateleira ou nunca existiu.</p>
+      </div>
+
+      <a href="/" class="inline-flex items-center gap-3 bg-[#5C3D2E] text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-[#4a3125] transition-all transform hover:-translate-y-1 active:scale-95">
+        <i class="fas fa-arrow-left"></i>
+        Voltar para o Cardápio
+      </a>
+
+      <div class="mt-12 pt-8 border-t border-[#E89E7D]/20">
+        <p class="text-xs uppercase tracking-widest font-bold mb-4 opacity-60">Siga-nos nas redes</p>
+        <div class="flex justify-center gap-4">
+          <a href="https://www.instagram.com/rhays_candystore_?igsh=M2Vpc3p6NjR6ZDZ6" target="_blank" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#E89E7D] shadow-sm hover:scale-110 transition-transform">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/5585996269684" target="_blank" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#25D366] shadow-sm hover:scale-110 transition-transform">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
