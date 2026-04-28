@@ -30,13 +30,13 @@ export const STORE_CONFIG = {
       category: 'Batatas', 
       description: 'Acompanha molhos, calabresa fritinha e parmesão' 
     },
-    { 
+    /*{ 
       id: 'b2', 
       name: 'Batata Frita Tamanho P', 
       price: 8.00, 
       category: 'Batatas', 
       description: 'Acompanha molhos, calabresa fritinha e parmesão' 
-    },
+    },*/
 
     // Dindins Gourmet
     { id: 'd1', name: 'Dindin Chocolate', price: 5.00, category: 'Dindins Gourmet' },

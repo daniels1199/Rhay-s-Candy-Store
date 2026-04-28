@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-brand: "Dancing Script", cursive;
+  
+  --color-brand-primary: #5C3D2E;
+  --color-brand-secondary: #E89E7D;
+  --color-brand-bg: #FDF1EB;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-brand-bg text-brand-primary;
+  }
+}
+
+.brand-font {
+  @apply font-brand;
+}
