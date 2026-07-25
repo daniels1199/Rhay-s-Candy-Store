@@ -27,7 +27,7 @@ export const STORE_CONFIG = {
     // Batatas
     { 
       id: 'b1', 
-      name: 'Batata Frita Tamanho M', 
+      name: 'Batata Frita', 
       price: 12.00, 
       category: 'Batatas', 
       description: 'Acompanha molhos, calabresa fritinha e parmesão' 
