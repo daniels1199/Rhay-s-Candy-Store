@@ -69,5 +69,13 @@ export const STORE_CONFIG = {
     { id: 's12', name: 'Bolo tradicional', price: 44.90, category: 'Doces Finos' },
     { id: 's13', name: 'Bolo baby', price: 16.00, category: 'Doces Finos' },
     { id: 's14', name: 'Mousse', price: 7.00, category: 'Doces Finos' },
+    { id: 's15', name: 'Bombom de uva', price: 10.00, category: 'Doces Finos', description: 'Com duas camadas de recheio e uvas verdes.'},
+
+    // Bebidas
+    { id: 'beb1', name: 'Coca-cola mini pet', price: 3.50, category: 'Bebidas' },
+    { id: 'beb2', name: 'Fanta uva mini pet', price: 3.50, category: 'Bebidas' },
+    { id: 'beb3', name: 'Água mineral (com gás)', price: 3.50, category: 'Bebidas' },
+    { id: 'beb4', name: 'Água mineral (sem gás)', price: 3.00, category: 'Bebidas' },
+    { id: 'beb5', name: 'Suco 300 ml', price: 5.00, category: 'Bebidas' },
   ] as MenuItem[],
 };
