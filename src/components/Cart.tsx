@@ -35,8 +35,10 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
     });
     
     message += `--------------------------\n`;
-    message += `Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
-    message += `Taxa de Entrega: R$ ${STORE_CONFIG.DELIVERY_FEE.toFixed(2).replace('.', ',')}\n`;
+    if (STORE_CONFIG.DELIVERY_FEE > 0) {
+      message += `Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+      message += `Taxa de Entrega: R$ ${STORE_CONFIG.DELIVERY_FEE.toFixed(2).replace('.', ',')}\n`;
+    }
     message += `*TOTAL: R$ ${total.toFixed(2).replace('.', ',')}*`;
     
     const encodedMessage = encodeURIComponent(message);
@@ -182,14 +184,18 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
 
                   <div className="space-y-6 pt-4">
                     <div className="space-y-3">
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Subtotal</span>
-                        <span className="text-[#5C3D2E] font-bold">R$ {subtotal.toFixed(2).replace('.', ',')}</span>
-                      </div>
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Taxa de Entrega</span>
-                        <span className="text-[#5C3D2E] font-bold">R$ {STORE_CONFIG.DELIVERY_FEE.toFixed(2).replace('.', ',')}</span>
-                      </div>
+                      {STORE_CONFIG.DELIVERY_FEE > 0 && (
+                        <>
+                          <div className="flex justify-between items-center text-sm">
+                            <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Subtotal</span>
+                            <span className="text-[#5C3D2E] font-bold">R$ {subtotal.toFixed(2).replace('.', ',')}</span>
+                          </div>
+                          <div className="flex justify-between items-center text-sm">
+                            <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Taxa de Entrega</span>
+                            <span className="text-[#5C3D2E] font-bold">R$ {STORE_CONFIG.DELIVERY_FEE.toFixed(2).replace('.', ',')}</span>
+                          </div>
+                        </>
+                      )}
                       <div className="flex justify-between items-center pt-4 border-t border-gray-200">
                         <span className="text-gray-400 font-black uppercase tracking-widest text-xs">Total</span>
                         <span className="text-3xl font-black text-[#5C3D2E]">
