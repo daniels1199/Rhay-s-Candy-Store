@@ -26,7 +26,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, onAdd }) => {
         </div>
         
         {item.description && (
-          <p className="text-sm text-gray-500 mb-6 line-clamp-2 italic leading-relaxed">
+          <p className="text-sm text-gray-500 mb-6 italic leading-relaxed">
             {item.description}
           </p>
         )}
