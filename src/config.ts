@@ -63,7 +63,7 @@ export const STORE_CONFIG = {
     { id: 's6', name: 'Trufa tradicional', price: 5.00, category: 'Doces Finos', description: 'Limão, Chocolate, Duo, Beijinho, Ninho com nutella'},
     { id: 's7', name: 'Brigadeiros', price: 3.00, category: 'Doces Finos' },
     { id: 's8', name: 'Brownie box', price: 10.00, category: 'Doces Finos' },
-    { id: 's9', name: 'Cookies', price: 10.00, category: 'Doces Finos' },
+    { id: 's9', name: 'Cookies', price: 12.00, category: 'Doces Finos' },
     { id: 's10', name: 'Fatia Brownie', price: 12.00, category: 'Doces Finos' },
     { id: 's11', name: 'Brownie na marmita', price: 11.90, category: 'Doces Finos' },
     { id: 's12', name: 'Bolo tradicional', price: 44.90, category: 'Doces Finos' },
