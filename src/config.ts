@@ -72,7 +72,7 @@ export const STORE_CONFIG = {
     { id: 's3', name: 'Banoffee', price: 10.90, category: 'Sobremesas' },
     { id: 's4', name: 'Delícia de abacaxi', price: 10.90, category: 'Sobremesas' },
     { id: 's14', name: 'Mousse', price: 8.00, category: 'Sobremesas' },
-    { id: 's16', name: 'Pudim', price: 0, category: 'Sobremesas' },
+    { id: 's16', name: 'Pudim', price: 10.00, category: 'Sobremesas' },
     { id: 's2', name: 'Bolo no pote', price: 12.90, category: 'Sobremesas', description: 'Chocolatudo, Cenoura com Chocolate, Prestígio, Red com ninho' },
     { id: 's8', name: 'Brownie in box', price: 10.00, category: 'Sobremesas', description: 'Brigadeiro de chocolate e ninho' },
     { id: 's10', name: 'Fatia Brownie', price: 12.00, category: 'Sobremesas' },
