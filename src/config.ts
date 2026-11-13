@@ -15,6 +15,7 @@ export const STORE_CONFIG = {
   CONTACT_PHONE: '5585996269684',
   CATEGORY_IMAGES: {
     'Pastéis': '/assets/aistudio/WhatsApp_Image_2026-11-12_at_18.57.59_8dfb4087.jpeg',
+    'Batatas': '/assets/aistudio/WhatsApp_Image_2026-11-12_at_18.58.00_3942d3a9.jpeg',
     'Doces Finos': '/assets/aistudio/WhatsApp_Image_2026-11-12_at_18.57.59__1__cfb101fc.jpeg',
   } as Record<string, string>,
   MENU_ITEMS: [
@@ -33,8 +34,7 @@ export const STORE_CONFIG = {
       name: 'Batata Frita', 
       price: 12.00, 
       category: 'Batatas', 
-      description: 'Acompanha calabresa fritinha e parmesão.',
-      image: '/assets/aistudio/WhatsApp_Image_2026-11-12_at_18.58.00_3942d3a9.jpeg'
+      description: 'Acompanha calabresa fritinha e parmesão.'
     },
     /*{ 
       id: 'b2', 

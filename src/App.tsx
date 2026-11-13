@@ -158,13 +158,15 @@ const App: React.FC = () => {
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mb-8 bg-white p-3 rounded-3xl shadow-sm border border-orange-100 max-w-xs"
+                className="mb-8 bg-white p-3 rounded-3xl shadow-sm border border-orange-100 w-full max-w-[280px]"
               >
-                <div className="aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[#FDF1EB]">
+                <div className="aspect-square w-full overflow-hidden rounded-2xl bg-[#FDF1EB]">
                   <img
                     src={STORE_CONFIG.CATEGORY_IMAGES[category]}
                     alt={category}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${
+                      category === 'Doces Finos' ? 'object-[50%_75%]' : 'object-center'
+                    }`}
                     loading="lazy"
                   />
                 </div>
