@@ -23,8 +23,8 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
     setTimeout(() => setPixCopied(false), 2000);
   };
 
-  const handleSendWhatsApp = () => {
-    if (items.length === 0) return;
+  const getWhatsAppUrl = () => {
+    if (items.length === 0) return '#';
 
     const date = new Date().toLocaleTimeString('pt-BR');
     let message = `*Pedido Rhay's Candy Store* (${date})\n`;
@@ -42,9 +42,7 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
     message += `*TOTAL: R$ ${total.toFixed(2).replace('.', ',')}*`;
     
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${STORE_CONFIG.CONTACT_PHONE}?text=${encodedMessage}`;
-    
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    return `https://wa.me/${STORE_CONFIG.CONTACT_PHONE}?text=${encodedMessage}`;
   };
 
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(STORE_CONFIG.PIX_CODE)}&color=5C3D2E&bgcolor=FDF1EB`;
@@ -204,14 +202,15 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
                       </div>
                     </div>
                     
-                    <button
-                      disabled={items.length === 0}
-                      onClick={handleSendWhatsApp}
-                      className="w-full bg-[#25D366] text-white py-5 rounded-[24px] font-black text-lg hover:bg-[#128C7E] shadow-xl shadow-green-100 transition-all flex items-center justify-center gap-3 disabled:bg-gray-200 disabled:text-gray-400 disabled:shadow-none active:scale-[0.98]"
+                    <a
+                      href={getWhatsAppUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-[#25D366] text-white py-5 rounded-[24px] font-black text-lg hover:bg-[#128C7E] shadow-xl shadow-green-100 transition-all flex items-center justify-center gap-3 active:scale-[0.98]"
                     >
                       <MessageCircle size={24} />
                       Fazer Pedido
-                    </button>
+                    </a>
                   </div>
                 </div>
               )}

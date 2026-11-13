@@ -1,7 +1,7 @@
 
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingBasket, Phone, Camera, MessageCircle, ChevronRight, Bike, Circle } from 'lucide-react';
+import { ShoppingBasket, Camera, MessageCircle, ChevronRight, Bike, Circle } from 'lucide-react';
 import { STORE_CONFIG } from './config';
 import { MenuItem, CartItem } from './types';
 import ItemCard from './components/ItemCard';
@@ -64,10 +64,6 @@ const App: React.FC = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  if (STORE_CONFIG.IS_MAINTENANCE) {
-    return <MaintenanceView />;
-  }
-
   const addToCart = useCallback((item: MenuItem) => {
     setCart((prev) => {
       const existing = prev.find((i) => i.id === item.id);
@@ -78,8 +74,11 @@ const App: React.FC = () => {
       }
       return [...prev, { ...item, quantity: 1 }];
     });
-    // Optional: open cart on first item or pulse the button
   }, []);
+
+  if (STORE_CONFIG.IS_MAINTENANCE) {
+    return <MaintenanceView />;
+  }
 
   const updateQuantity = (id: string, delta: number) => {
     setCart((prev) =>
@@ -153,6 +152,24 @@ const App: React.FC = () => {
               </h3>
               <div className="flex-grow h-px bg-[#5C3D2E]/10"></div>
             </motion.div>
+
+            {STORE_CONFIG.CATEGORY_IMAGES?.[category] && (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-8 bg-white p-3 rounded-3xl shadow-sm border border-orange-100 max-w-xs"
+              >
+                <div className="aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[#FDF1EB]">
+                  <img
+                    src={STORE_CONFIG.CATEGORY_IMAGES[category]}
+                    alt={category}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </motion.div>
+            )}
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {STORE_CONFIG.MENU_ITEMS

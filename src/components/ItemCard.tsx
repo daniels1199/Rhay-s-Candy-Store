@@ -17,6 +17,16 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, onAdd }) => {
       whileHover={{ y: -5 }}
       className="bg-white rounded-3xl shadow-sm border border-orange-100 overflow-hidden flex flex-col h-full hover:shadow-xl hover:shadow-orange-100/20 transition-all duration-300"
     >
+      {item.image && (
+        <div className="w-full h-48 overflow-hidden bg-[#FDF1EB]">
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      )}
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-3">
           <h3 className="font-bold text-[#5C3D2E] text-lg leading-snug">{item.name}</h3>

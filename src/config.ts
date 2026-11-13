@@ -13,16 +13,19 @@ export const STORE_CONFIG = {
   DELIVERY_FEE: 0.00,
   PIX_CODE: '00020126360014br.gov.bcb.pix0114+55859962696845204000053039865802BR5911SORA50679376009Sao Paulo610901227-20062230519daqr49730549495139663042905',
   CONTACT_PHONE: '5585996269684',
+  CATEGORY_IMAGES: {
+    'Pastéis': '/assets/aistudio/WhatsApp_Image_2026-11-12_at_18.57.59_8dfb4087.jpeg',
+    'Doces Finos': '/assets/aistudio/WhatsApp_Image_2026-11-12_at_18.57.59__1__cfb101fc.jpeg',
+  } as Record<string, string>,
   MENU_ITEMS: [
     // Pastéis
-    { id: 'p1', name: 'Misto (Queijo + Presunto)', price: 8.00, category: 'Pastéis' },
-    { id: 'p2', name: 'Presunto', price: 6.00, category: 'Pastéis' },
-    { id: 'p3', name: 'Calabresa', price: 7.00, category: 'Pastéis' },
-    { id: 'p4', name: 'Queijo', price: 7.50, category: 'Pastéis' },
-    { id: 'p5', name: 'Carne', price: 8.00, category: 'Pastéis' },
-    { id: 'p6', name: 'Carne (Azeitona + Milho)', price: 10.00, category: 'Pastéis' },
-    { id: 'p7', name: 'Frango', price: 8.00, category: 'Pastéis' },
-    { id: 'p8', name: 'Frango com queijo', price: 10.00, category: 'Pastéis' },
+    { id: 'p4', name: 'Queijo', price: 9.90, category: 'Pastéis' },
+    { id: 'p9', name: 'Mistão', price: 11.90, category: 'Pastéis' },
+    { id: 'p10', name: 'Pizza', price: 9.90, category: 'Pastéis' },
+    { id: 'p5', name: 'Carne', price: 11.90, category: 'Pastéis' },
+    { id: 'p1', name: 'Misto', price: 9.90, category: 'Pastéis' },
+    { id: 'p3', name: 'Calabresa', price: 9.90, category: 'Pastéis' },
+    { id: 'p7', name: 'Frango', price: 11.90, category: 'Pastéis' },
     
     // Batatas
     { 
@@ -30,7 +33,8 @@ export const STORE_CONFIG = {
       name: 'Batata Frita', 
       price: 12.00, 
       category: 'Batatas', 
-      description: 'Acompanha molhos, calabresa fritinha e parmesão' 
+      description: 'Acompanha calabresa fritinha e parmesão.',
+      image: '/assets/aistudio/WhatsApp_Image_2026-11-12_at_18.58.00_3942d3a9.jpeg'
     },
     /*{ 
       id: 'b2', 
@@ -55,20 +59,20 @@ export const STORE_CONFIG = {
     { id: 'd12', name: 'Dindin Prestígio', price: 6.00, category: 'Dindins Gourmet' },
 
     // Doces Finos
-    { id: 's1', name: 'Cones recheados', price: 9.00, category: 'Doces Finos', description: 'Ninho com nutella, Chocolate, Duo, Prestígio'},
+    { id: 's1', name: 'Cone trufado', price: 9.00, category: 'Doces Finos', description: 'Ninho, Duo, Chocolate, Ninho com nutella' },
     { id: 's2', name: 'Bolo no pote', price: 12.90, category: 'Doces Finos', description: 'Chocolatudo, Cenoura com Chocolate, Prestígio, Red com ninho' },
     { id: 's3', name: 'Banoffee', price: 10.90, category: 'Doces Finos' },
     { id: 's4', name: 'Delícia de abacaxi', price: 10.90, category: 'Doces Finos' },
     { id: 's5', name: 'Caixa de Trufas', price: 11.90, category: 'Doces Finos', description: 'Contém 4 unidades, sabores variados.' },
-    { id: 's6', name: 'Trufa tradicional', price: 5.00, category: 'Doces Finos', description: 'Limão, Chocolate, Duo, Beijinho, Ninho com nutella'},
-    { id: 's7', name: 'Brigadeiros', price: 3.00, category: 'Doces Finos' },
-    { id: 's8', name: 'Brownie box', price: 10.00, category: 'Doces Finos' },
+    { id: 's6', name: 'Trufas', price: 5.00, category: 'Doces Finos', description: 'Consultar sabores disponíveis.' },
+    { id: 's7', name: 'Brigadeiros gourmet', price: 3.00, category: 'Doces Finos', description: 'Conferir sabores na hora do pedido.' },
+    { id: 's8', name: 'Brownie in box', price: 10.00, category: 'Doces Finos', description: 'Brigadeiro de chocolate e ninho' },
     { id: 's9', name: 'Cookies', price: 12.00, category: 'Doces Finos' },
     { id: 's10', name: 'Fatia Brownie', price: 12.00, category: 'Doces Finos' },
     { id: 's11', name: 'Brownie na marmita', price: 11.90, category: 'Doces Finos' },
     { id: 's12', name: 'Bolo tradicional', price: 44.90, category: 'Doces Finos' },
-    { id: 's13', name: 'Bolo baby', price: 16.00, category: 'Doces Finos' },
-    { id: 's14', name: 'Mousse', price: 7.00, category: 'Doces Finos' },
+    { id: 's13', name: 'Mini bolinho', price: 16.00, category: 'Doces Finos', description: 'Red velvet, Chocolatudo, Choconinho' },
+    { id: 's14', name: 'Mousse', price: 8.00, category: 'Doces Finos' },
     { id: 's15', name: 'Bombom de uva', price: 10.00, category: 'Doces Finos', description: 'Com duas camadas de recheio e uvas verdes.'},
 
     // Bebidas
@@ -77,5 +81,8 @@ export const STORE_CONFIG = {
     { id: 'beb3', name: 'Água mineral (com gás)', price: 3.50, category: 'Bebidas' },
     { id: 'beb4', name: 'Água mineral (sem gás)', price: 3.00, category: 'Bebidas' },
     { id: 'beb5', name: 'Suco 300 ml', price: 5.00, category: 'Bebidas' },
+    { id: 'beb6', name: 'Coca-Cola (lata)', price: 6.00, category: 'Bebidas' },
+    { id: 'beb7', name: 'Fanta uva/laranja (lata)', price: 6.00, category: 'Bebidas' },
+    { id: 'beb8', name: 'Cajuína São Geraldo (lata)', price: 6.00, category: 'Bebidas' },
   ] as MenuItem[],
 };
