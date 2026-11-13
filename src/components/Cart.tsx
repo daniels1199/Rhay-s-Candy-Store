@@ -31,7 +31,10 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
     message += `--------------------------\n`;
     
     items.forEach((item) => {
-      message += `• *${item.quantity}x* ${item.name}\n  _R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}_\n`;
+      const priceLabel = item.price > 0
+        ? `R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}`
+        : 'Consultar valor';
+      message += `• *${item.quantity}x* ${item.name}\n  _${priceLabel}_\n`;
     });
     
     message += `--------------------------\n`;
@@ -111,7 +114,9 @@ const Cart: React.FC<CartProps> = ({ items, onRemove, onUpdateQuantity, isOpen, 
                         >
                           <div className="flex-grow">
                             <h4 className="font-bold text-[#5C3D2E] mb-1">{item.name}</h4>
-                            <p className="text-[#E89E7D] font-black text-sm mb-3">R$ {item.price.toFixed(2).replace('.', ',')}</p>
+                            <p className="text-[#E89E7D] font-black text-sm mb-3">
+                              {item.price > 0 ? `R$ ${item.price.toFixed(2).replace('.', ',')}` : 'Consultar valor'}
+                            </p>
                             <div className="flex items-center gap-4">
                               <div className="flex items-center gap-1 bg-white rounded-xl border border-orange-200 p-1 shadow-sm">
                                 <button 

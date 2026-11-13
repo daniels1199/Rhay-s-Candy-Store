@@ -31,7 +31,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ item, onAdd }) => {
         <div className="flex justify-between items-start mb-3">
           <h3 className="font-bold text-[#5C3D2E] text-lg leading-snug">{item.name}</h3>
           <span className="font-black text-[#E89E7D] whitespace-nowrap ml-3 bg-[#FDF1EB] px-3 py-1 rounded-full text-sm">
-            R$ {item.price.toFixed(2).replace('.', ',')}
+            {item.price > 0 ? `R$ ${item.price.toFixed(2).replace('.', ',')}` : 'Consultar valor'}
           </span>
         </div>
         

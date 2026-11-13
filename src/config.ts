@@ -60,20 +60,23 @@ export const STORE_CONFIG = {
 
     // Doces Finos
     { id: 's1', name: 'Cone trufado', price: 9.00, category: 'Doces Finos', description: 'Ninho, Duo, Chocolate, Ninho com nutella' },
-    { id: 's2', name: 'Bolo no pote', price: 12.90, category: 'Doces Finos', description: 'Chocolatudo, Cenoura com Chocolate, Prestígio, Red com ninho' },
-    { id: 's3', name: 'Banoffee', price: 10.90, category: 'Doces Finos' },
-    { id: 's4', name: 'Delícia de abacaxi', price: 10.90, category: 'Doces Finos' },
     { id: 's5', name: 'Caixa de Trufas', price: 11.90, category: 'Doces Finos', description: 'Contém 4 unidades, sabores variados.' },
     { id: 's6', name: 'Trufas', price: 5.00, category: 'Doces Finos', description: 'Consultar sabores disponíveis.' },
     { id: 's7', name: 'Brigadeiros gourmet', price: 3.00, category: 'Doces Finos', description: 'Conferir sabores na hora do pedido.' },
-    { id: 's8', name: 'Brownie in box', price: 10.00, category: 'Doces Finos', description: 'Brigadeiro de chocolate e ninho' },
     { id: 's9', name: 'Cookies', price: 12.00, category: 'Doces Finos' },
-    { id: 's10', name: 'Fatia Brownie', price: 12.00, category: 'Doces Finos' },
-    { id: 's11', name: 'Brownie na marmita', price: 11.90, category: 'Doces Finos' },
     { id: 's12', name: 'Bolo tradicional', price: 44.90, category: 'Doces Finos' },
     { id: 's13', name: 'Mini bolinho', price: 16.00, category: 'Doces Finos', description: 'Red velvet, Chocolatudo, Choconinho' },
-    { id: 's14', name: 'Mousse', price: 8.00, category: 'Doces Finos' },
     { id: 's15', name: 'Bombom de uva', price: 10.00, category: 'Doces Finos', description: 'Com duas camadas de recheio e uvas verdes.'},
+
+    // Sobremesas
+    { id: 's3', name: 'Banoffee', price: 10.90, category: 'Sobremesas' },
+    { id: 's4', name: 'Delícia de abacaxi', price: 10.90, category: 'Sobremesas' },
+    { id: 's14', name: 'Mousse', price: 8.00, category: 'Sobremesas' },
+    { id: 's16', name: 'Pudim', price: 0, category: 'Sobremesas' },
+    { id: 's2', name: 'Bolo no pote', price: 12.90, category: 'Sobremesas', description: 'Chocolatudo, Cenoura com Chocolate, Prestígio, Red com ninho' },
+    { id: 's8', name: 'Brownie in box', price: 10.00, category: 'Sobremesas', description: 'Brigadeiro de chocolate e ninho' },
+    { id: 's10', name: 'Fatia Brownie', price: 12.00, category: 'Sobremesas' },
+    { id: 's11', name: 'Brownie na marmita', price: 11.90, category: 'Sobremesas' },
 
     // Bebidas
     { id: 'beb1', name: 'Coca-cola mini pet', price: 3.50, category: 'Bebidas' },
